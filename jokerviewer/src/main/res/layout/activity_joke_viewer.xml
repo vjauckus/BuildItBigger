@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/joke_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/joke_view_label"
+        android:gravity="center_horizontal"
+        />
+    <TextView
+        android:id="@+id/tv_show_joke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="@string/joke_default"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        />
+
+</LinearLayout>
