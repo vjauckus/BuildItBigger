@@ -33,3 +33,10 @@ dependencies {
 
     implementation project(':jokewizard')
 }
+// V2: Define deployment configuration using the new App Engine plugin
+// with the appengine closure
+appengine {  // App Engine tasks configuration
+    tools.cloudSdkHome="/Users/veronika/cloud_google/google-cloud-sdk/"
+
+}
+
