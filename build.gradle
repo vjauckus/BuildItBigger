@@ -19,3 +19,12 @@ allprojects {
         google()
     }
 }
+// Help from https://stackoverflow.com/questions/31434928/android-gradle-task-google-appengine
+/*task startServer (dependsOn: [":backend:appengineStart"]) {
+    project(":backend").afterEvaluate { backend ->
+        backend.extensions. = true
+    }
+    doLast {
+        println "Server Started!"
+    }
+}*/

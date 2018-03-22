@@ -35,6 +35,7 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
     private ProgressDialog pDialog;
     private Context mContext;
 
+
     public interface JokeCallback{
         void sendResultToActivity(String result);
 
@@ -42,9 +43,11 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
     private JokeCallback callback;
 
     //Constructor
-    public JokerAsyncTask(JokeCallback listener, Context context){
+    public JokerAsyncTask(Context context, JokeCallback listener, boolean showDialog){
         this.mContext = context;
         this.callback= listener;
+        this.isLoading = showDialog;
+
     }
 
     @Override
@@ -71,16 +74,18 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
-                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                        public void initialize(AbstractGoogleClientRequest<?>
+                                                       abstractGoogleClientRequest) throws IOException {
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
                     });
             // end options for devappserver
             myApiService = builder.build();
 
+
              }
 
-
+      //  this.mTestName = params[0];
 
         try {
             return myApiService.getJokeFromCloudServer().execute().getData();
@@ -96,18 +101,15 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String results) {
 
-        isLoading = true;
-
         Timber.d("onPostExecute"+" "+results);
 
-        Log.v(JokerAsyncTask.class.getSimpleName(), results);
+        //Log.v(JokerAsyncTask.class.getSimpleName(), results);
 
-     /*   if (sendResultListener != null){
-
-            sendResultListener.sendResultToActivity(jokerResults);
-        }*/
          if(results.equals("")) {
             Log.v(TAG, "No Joke available");
+        }
+        if(pDialog != null && pDialog.isShowing()){
+             pDialog.dismiss();
         }
         callback.sendResultToActivity(results);
     }

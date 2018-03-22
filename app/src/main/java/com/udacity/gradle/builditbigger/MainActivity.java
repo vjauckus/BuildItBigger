@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements JokerAsyncTask.Jo
     public void tellJoke(View view) {
         Toast.makeText(this, "start AsyncTask", Toast.LENGTH_SHORT).show();
 
-        new JokerAsyncTask(this, this).execute();
+        new JokerAsyncTask(this, this, true).execute();
      /*   JokeWizard jokeWizard = new JokeWizard();
         String joke = jokeWizard.getJoke();
         Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
