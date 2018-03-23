@@ -1,0 +1,8 @@
+<resources>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="instructions">Press the button for a delicious joke! You are in Paid-Version.</string>
+    <string name="button_text">Tell Joke</string>
+
+</resources>
