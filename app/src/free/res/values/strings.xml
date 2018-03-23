@@ -4,6 +4,6 @@
 
     <string name="instructions">Press the button for a delicious joke! Please upgrade to Paid-Version.</string>
     <string name="button_text">Tell Joke</string>
-
+  <!--  <string name="interstitual_id">ca-app-pub-3940256099942544/1033173712</string> -->
 
 </resources>
