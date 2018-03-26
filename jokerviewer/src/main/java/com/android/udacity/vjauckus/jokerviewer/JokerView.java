@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by veronika on 15.03.18.
  */
@@ -20,7 +18,7 @@ public class JokerView extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke_viewer);
-        ButterKnife.bind(this);
+       // ButterKnife.bind(this);
 
         mJokeLabel = findViewById(R.id.joke_label);
        // mJokeLabel.setText("I am in Main");

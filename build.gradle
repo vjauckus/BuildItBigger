@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
         classpath 'com.google.guava:guava:22.0'
@@ -19,12 +20,30 @@ allprojects {
         google()
     }
 }
-// Help from https://stackoverflow.com/questions/31434928/android-gradle-task-google-appengine
-/*task startServer (dependsOn: [":backend:appengineStart"]) {
-    project(":backend").afterEvaluate { backend ->
-        backend.extensions. = true
-    }
+
+
+task startServer(dependsOn: [":backend:appengineStart"]) {
+
     doLast {
-        println "Server Started!"
+        println 'Cloud Server Started!'
     }
-}*/
+}
+
+task appTests{
+
+    dependsOn ':app:connectedAndroidTest'
+}
+task stopServer{
+    dependsOn ':backend:appengineStop'
+    doLast{
+        println "Server Stopped!"
+    }
+}
+
+task allTask(){
+    dependsOn startServer
+    finalizedBy appTests, stopServer
+    doLast{
+        println "All tasks finished!"
+    }
+}
