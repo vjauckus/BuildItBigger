@@ -14,6 +14,9 @@
         android:id="@+id/instructions_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:paddingBottom="15dp"
         android:text="@string/instructions" />
 
     <Button
@@ -21,7 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
+        android:background="@color/colorButtonGetJoke"
+        android:textColor="@android:color/white"
         android:onClick="tellJoke"
+
         android:text="@string/button_text" />
 
 

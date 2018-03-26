@@ -4,6 +4,6 @@ public class JokeWizard {
 
     public static String getJoke(){
 
-        return "Q: What is the best joke?\nA: This one ";
+        return "Q: What is black, white, and red all over?\nA: A sun burnt penguin.";
     }
 }

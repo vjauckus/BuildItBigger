@@ -67,7 +67,7 @@ public class AsyncTaskTester {
         }
         catch (Exception ex){
             ex.getMessage();
-            fail("Async Task Loading does not work proper");
+            fail(context.getResources().getString(R.string.async_task_error));
         }
     }
 }

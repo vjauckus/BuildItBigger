@@ -23,7 +23,7 @@ public class JokerView extends AppCompatActivity{
         ButterKnife.bind(this);
 
         mJokeLabel = findViewById(R.id.joke_label);
-        mJokeLabel.setText("I am in Main");
+       // mJokeLabel.setText("I am in Main");
 
         Intent  intentThatStartThisActivity = getIntent();
         String joke;
@@ -31,7 +31,7 @@ public class JokerView extends AppCompatActivity{
 
             joke = intentThatStartThisActivity.getStringExtra("joke");
             if (!joke.equals("")){
-                mJokeTextView = (TextView) findViewById(R.id.tv_show_joke);
+                mJokeTextView = findViewById(R.id.tv_show_joke);
                 mJokeTextView.setText(joke);
 
             }

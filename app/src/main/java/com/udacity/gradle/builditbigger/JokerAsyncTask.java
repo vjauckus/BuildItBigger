@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -52,9 +51,9 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPreExecute() {
-        Log.v(TAG, "Starting Loading");
+       // Log.v(TAG, "Starting Loading");
         super.onPreExecute();
-        if(!isLoading){
+        if(isLoading){
             pDialog = new ProgressDialog(mContext);
             pDialog.setMessage(mContext.getString(R.string.loading));
             pDialog.show();
@@ -71,6 +70,7 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
                     // options for running against local devappserver
                     // - 10.0.2.2 is localhost's IP address in Android emulator
                     // - turn off compression when running against local devappserver
+                    .setApplicationName("builditbigger2403")
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
@@ -91,7 +91,7 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
             return myApiService.getJokeFromCloudServer().execute().getData();
         }
         catch (IOException ex){
-            Log.v(TAG, "Error in AsyncTask");
+           // Log.v(TAG, "Error in AsyncTask");
 
             return ex.getMessage();
         }
@@ -106,7 +106,7 @@ public class JokerAsyncTask extends AsyncTask<Void, Void, String> {
         //Log.v(JokerAsyncTask.class.getSimpleName(), results);
 
          if(results.equals("")) {
-            Log.v(TAG, "No Joke available");
+          //  Log.v(TAG, "No Joke available");
         }
         if(pDialog != null && pDialog.isShowing()){
              pDialog.dismiss();
