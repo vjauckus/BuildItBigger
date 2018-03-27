@@ -2,4 +2,5 @@
     <string name="app_name">jokerviewer</string>
     <string name="joke_view_label">Please see the Joke</string>
     <string name="joke_default">So funny joke</string>
+    <string name="joke_get_error">No joke was received.</string>
 </resources>

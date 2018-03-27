@@ -22,7 +22,7 @@ allprojects {
 }
 
 
-task startServer(dependsOn: [":backend:appengineStart"]) {
+task startServer(dependsOn: ":backend:appengineStart") {
 
     doLast {
         println 'Cloud Server Started!'
@@ -40,7 +40,7 @@ task stopServer{
     }
 }
 
-task allTask(){
+task allTasks(){
     dependsOn startServer
     finalizedBy appTests, stopServer
     doLast{

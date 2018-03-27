@@ -22,6 +22,7 @@ public class MainActivityFragment extends Fragment  implements JokerAsyncTask.Jo
 
     Button showJokeButton;
     String mJoke;
+    public final String SEND_JOKE_CONSTANT = "joke";
 
     private InterstitialAd mInterstitialAd;
 
@@ -60,7 +61,7 @@ public class MainActivityFragment extends Fragment  implements JokerAsyncTask.Jo
          public void onAdClosed() {
             // super.onAdClosed();
              Intent startJokerView = new Intent(getContext(), JokerView.class);
-             startJokerView.putExtra("joke", mJoke);
+             startJokerView.putExtra(SEND_JOKE_CONSTANT, mJoke);
              startActivity(startJokerView);
          }
      });

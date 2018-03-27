@@ -16,6 +16,8 @@ import com.android.udacity.vjauckus.jokerviewer.JokerView;
  */
 public class MainActivityFragment extends Fragment  implements JokerAsyncTask.JokeCallback{
 
+    public final String SEND_JOKE_CONSTANT = "joke";
+
     Button mShowJokeButton;
 
     public MainActivityFragment() {
@@ -48,7 +50,7 @@ public class MainActivityFragment extends Fragment  implements JokerAsyncTask.Jo
     public void sendResultToActivity(String results){
 
         Intent startJokerView = new Intent(getContext(), JokerView.class);
-        startJokerView.putExtra("joke", results);
+        startJokerView.putExtra(SEND_JOKE_CONSTANT, results);
         startActivity(startJokerView);
     }
 
